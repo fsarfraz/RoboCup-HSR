@@ -1,0 +1,1 @@
+/home/farhan/robocup_ws/devel/.private/obj_detection/share/obj_detection/cmake/obj_detectionConfig.cmake

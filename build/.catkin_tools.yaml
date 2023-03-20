@@ -1,0 +1,6 @@
+devel_space: /home/farhan/robocup_ws/devel
+install: false
+install_space: /home/farhan/robocup_ws/install
+profile: default
+source_space: /home/farhan/robocup_ws/src
+workspace: /home/farhan/robocup_ws
