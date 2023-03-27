@@ -1,0 +1,6 @@
+Symlinking /home/farhan/robocup_ws/devel/lib/obj_detection/point_detection.py
+Symlinking /home/farhan/robocup_ws/devel/lib/obj_detection/cmake.lock
+Symlinking /home/farhan/robocup_ws/devel/lib/obj_detection/head_move.py
+Symlinking /home/farhan/robocup_ws/devel/lib/pkgconfig/obj_detection.pc
+Symlinking /home/farhan/robocup_ws/devel/share/obj_detection/cmake/obj_detectionConfig.cmake
+Symlinking /home/farhan/robocup_ws/devel/share/obj_detection/cmake/obj_detectionConfig-version.cmake

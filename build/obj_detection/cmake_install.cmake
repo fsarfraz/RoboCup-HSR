@@ -129,6 +129,10 @@ file(INSTALL DESTINATION "/home/farhan/robocup_ws/install" TYPE FILE FILES "/hom
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/obj_detection/msg" TYPE FILE FILES "/home/farhan/robocup_ws/src/obj_detection/msg/quadrant.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/farhan/robocup_ws/build/obj_detection/catkin_generated/installspace/obj_detection.pc")
 endif()
 
@@ -145,6 +149,10 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/obj_detection" TYPE PROGRAM FILES "/home/farhan/robocup_ws/build/obj_detection/catkin_generated/installspace/point_detection.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/obj_detection" TYPE PROGRAM FILES "/home/farhan/robocup_ws/build/obj_detection/catkin_generated/installspace/head_move.py")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
