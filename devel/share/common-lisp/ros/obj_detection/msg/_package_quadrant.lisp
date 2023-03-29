@@ -1,0 +1,1 @@
+/home/farhan/robocup_ws/devel/.private/obj_detection/share/common-lisp/ros/obj_detection/msg/_package_quadrant.lisp

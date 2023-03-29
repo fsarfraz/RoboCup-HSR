@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(obj_detection_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/farhan/robocup_ws/devel/.private/obj_detection/include " STREQUAL " ")
   set(obj_detection_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/farhan/robocup_ws/devel/.private/obj_detection/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(obj_detection_EXPORTED_TARGETS "")
+set(obj_detection_EXPORTED_TARGETS "obj_detection_generate_messages_cpp;obj_detection_generate_messages_eus;obj_detection_generate_messages_lisp;obj_detection_generate_messages_nodejs;obj_detection_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${obj_detection_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -185,7 +185,7 @@ foreach(t ${obj_detection_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "roscpp;rospy;std_msgs;message_runtime;message_generation")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(obj_detection_EXPORTED_TARGETS ${${obj_detection_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "obj_detection-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${obj_detection_DIR}/${extra})

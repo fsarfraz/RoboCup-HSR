@@ -1,0 +1,1 @@
+/home/farhan/robocup_ws/devel/.private/obj_detection/share/roseus/ros/obj_detection/manifest.l

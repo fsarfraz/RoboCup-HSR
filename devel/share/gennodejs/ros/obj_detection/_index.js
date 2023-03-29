@@ -1,0 +1,1 @@
+/home/farhan/robocup_ws/devel/.private/obj_detection/share/gennodejs/ros/obj_detection/_index.js
