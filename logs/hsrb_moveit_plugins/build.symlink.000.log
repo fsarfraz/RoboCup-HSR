@@ -1,0 +1,5 @@
+Symlinking /home/farhan/robocup_ws/devel/lib/libhsrb_moveit_controller_manager.so
+Symlinking /home/farhan/robocup_ws/devel/lib/libhsrb_moveit_kinematics.so
+Symlinking /home/farhan/robocup_ws/devel/lib/pkgconfig/hsrb_moveit_plugins.pc
+Symlinking /home/farhan/robocup_ws/devel/share/hsrb_moveit_plugins/cmake/hsrb_moveit_pluginsConfig-version.cmake
+Symlinking /home/farhan/robocup_ws/devel/share/hsrb_moveit_plugins/cmake/hsrb_moveit_pluginsConfig.cmake

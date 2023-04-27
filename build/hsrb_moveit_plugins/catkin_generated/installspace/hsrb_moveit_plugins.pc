@@ -1,0 +1,8 @@
+prefix=/home/farhan/robocup_ws/install
+
+Name: hsrb_moveit_plugins
+Description: Description of hsrb_moveit_plugins
+Version: 0.6.3
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: actionlib control_msgs eigen_conversions hsrb_analytic_ik moveit_core moveit_ros_planning pluginlib roscpp tf tmc_control_msgs tmc_robot_kinematics_model

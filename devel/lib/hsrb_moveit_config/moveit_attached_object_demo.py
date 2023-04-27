@@ -1,0 +1,1 @@
+/home/farhan/robocup_ws/devel/.private/hsrb_moveit_config/lib/hsrb_moveit_config/moveit_attached_object_demo.py

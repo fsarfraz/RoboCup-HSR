@@ -1,0 +1,1 @@
+/home/farhan/robocup_ws/devel/.private/hsrb_moveit_config/lib/pkgconfig/hsrb_moveit_config.pc

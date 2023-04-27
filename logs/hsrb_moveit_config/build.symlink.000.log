@@ -1,0 +1,14 @@
+Symlinking /home/farhan/robocup_ws/devel/lib/hsrb_moveit_config/moveit_ik_demo.py
+Symlinking /home/farhan/robocup_ws/devel/lib/hsrb_moveit_config/moveit_obstacles_demo.py
+Symlinking /home/farhan/robocup_ws/devel/lib/hsrb_moveit_config/cmake.lock
+Symlinking /home/farhan/robocup_ws/devel/lib/hsrb_moveit_config/moveit_cartesian_demo.py
+Symlinking /home/farhan/robocup_ws/devel/lib/hsrb_moveit_config/moveit_pick_and_place_demo.py
+Symlinking /home/farhan/robocup_ws/devel/lib/hsrb_moveit_config/moveit_fk_demo.py
+Symlinking /home/farhan/robocup_ws/devel/lib/hsrb_moveit_config/hsrb_bottle_grasp.py
+Symlinking /home/farhan/robocup_ws/devel/lib/hsrb_moveit_config/moveit_attached_object_demo.py
+Symlinking /home/farhan/robocup_ws/devel/lib/hsrb_moveit_config/moveit_constraints_demo.py
+Symlinking /home/farhan/robocup_ws/devel/lib/hsrb_moveit_config/moveit_speed_demo.py
+Symlinking /home/farhan/robocup_ws/devel/lib/hsrb_moveit_config/moveit_gripper_demo.py
+Symlinking /home/farhan/robocup_ws/devel/lib/pkgconfig/hsrb_moveit_config.pc
+Symlinking /home/farhan/robocup_ws/devel/share/hsrb_moveit_config/cmake/hsrb_moveit_configConfig-version.cmake
+Symlinking /home/farhan/robocup_ws/devel/share/hsrb_moveit_config/cmake/hsrb_moveit_configConfig.cmake

@@ -1,0 +1,1 @@
+/home/farhan/robocup_ws/devel/.private/hsrb_moveit_plugins/share/hsrb_moveit_plugins/cmake/hsrb_moveit_pluginsConfig.cmake

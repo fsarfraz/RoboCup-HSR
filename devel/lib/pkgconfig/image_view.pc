@@ -1,0 +1,1 @@
+/home/farhan/robocup_ws/devel/.private/image_view/lib/pkgconfig/image_view.pc

@@ -22,7 +22,7 @@ class pointDetector():
         #self.image_pub = rospy.Publisher("rand_topic",Image,queue_size=10)
         self.quad_pub = rospy.Publisher("quadrant", String, queue_size=1)
         self.bridge = CvBridge()
-        self.image_sub = rospy.Subscriber("usb_cam/image_raw",Image,self.detector)
+        self.image_sub = rospy.Subscriber("/hsrb/head_rgbd_sensor/rgb/image_raw",Image,self.detector)
     # def findHands(self,img, draw=False):
         
 

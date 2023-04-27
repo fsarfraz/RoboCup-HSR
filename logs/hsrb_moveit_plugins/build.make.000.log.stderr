@@ -1,0 +1,14 @@
+[01m[K/home/farhan/robocup_ws/src/hsrb_moveit_plugins/hsrb_moveit_kinematics/src/hsrb_moveit_kinematics.cpp:[m[K In member function ‘[01m[Kvirtual bool hsrb_moveit_kinematics::HSRBKinematicsPlugin::initialize(const string&, const string&, const string&, const string&, double)[m[K’:
+[01m[K/home/farhan/robocup_ws/src/hsrb_moveit_plugins/hsrb_moveit_kinematics/src/hsrb_moveit_kinematics.cpp:29:88:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvirtual void kinematics::KinematicsBase::setValues(const string&, const string&, const string&, const string&, double)[m[K’ is deprecated [[01;35m[K-Wdeprecated-declarations[m[K]
+   29 |   setValues(robot_description, group_name, base_frame, tip_frame, search_discretization[01;35m[K)[m[K;
+      |                                                                                        [01;35m[K^[m[K
+In file included from [01m[K/home/farhan/robocup_ws/src/hsrb_moveit_plugins/hsrb_moveit_kinematics/src/hsrb_moveit_kinematics.hpp:6[m[K,
+                 from [01m[K/home/farhan/robocup_ws/src/hsrb_moveit_plugins/hsrb_moveit_kinematics/src/hsrb_moveit_kinematics.cpp:2[m[K:
+[01m[K/opt/ros/noetic/include/moveit/kinematics_base/kinematics_base.h:345:31:[m[K [01;36m[Knote: [m[Kdeclared here
+  345 |   [[deprecated]] virtual void [01;36m[KsetValues[m[K(const std::string& robot_description, const std::string& group_name,
+      |                               [01;36m[K^~~~~~~~~[m[K
+In file included from [01m[K/home/farhan/robocup_ws/src/hsrb_moveit_plugins/hsrb_moveit_controller_manager/thirdparty/moveit_simple_controller_manager/src/moveit_simple_controller_manager.cpp:47[m[K:
+[01m[K/home/farhan/robocup_ws/src/hsrb_moveit_plugins/hsrb_moveit_controller_manager/thirdparty/moveit_simple_controller_manager/src/../../../src/hsrb_gripper_command_controller_handle.hpp:[m[K In member function ‘[01m[Kvirtual bool moveit_simple_controller_manager::HsrbGripperCommandControllerHandle::waitForExecution(const ros::Duration&)[m[K’:
+[01m[K/home/farhan/robocup_ws/src/hsrb_moveit_plugins/hsrb_moveit_controller_manager/thirdparty/moveit_simple_controller_manager/src/../../../src/hsrb_gripper_command_controller_handle.hpp:158:3:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+  158 |   [01;35m[K}[m[K
+      |   [01;35m[K^[m[K

@@ -1,0 +1,23 @@
+<launch>
+  <!-- Set the file describing which sensor(s) to use to build the octomap  -->
+  <arg name="moveit_octomap_sensor_params_file" default="$(find hsrb_moveit_config)/config/sensors_xtion.yaml" />
+
+  <!-- Params are specific to this plugin -->
+
+  <arg name="head_pointing_frame" default="/hsrb/head_depth_camera_pointcloud_frame" />
+  <param name="head_pointing_frame" value="$(arg head_pointing_frame)" />
+
+  <!-- Params for the octomap monitor -->
+  
+  <param name="octomap_frame" type="string" value="odom" />
+  <param name="octomap_resolution" type="double" value="0.04" />
+  <param name="max_range" type="double" value="3.0" />
+  <param name="octomap_sensor_model/min" value="0.99"/>
+  <param name="octomap_sensor_model/max" value="0.01"/>
+  <param name="octomap_sensor_model/hit" type="double" value="0.99"/>
+  <param name="octomap_sensor_model/miss" type="double" value="0.01"/>
+  
+  <!-- sensors used to update the map -->
+  <rosparam command="load" file="$(arg moveit_octomap_sensor_params_file)" />
+
+</launch>

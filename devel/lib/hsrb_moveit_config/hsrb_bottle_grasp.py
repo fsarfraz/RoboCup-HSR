@@ -1,0 +1,1 @@
+/home/farhan/robocup_ws/devel/.private/hsrb_moveit_config/lib/hsrb_moveit_config/hsrb_bottle_grasp.py
