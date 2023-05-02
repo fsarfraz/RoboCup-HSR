@@ -19,19 +19,9 @@ class pointDetector():
         self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.modelC, self.detectionCon,self.trackCon)
         self.mpDraw = mp.solutions.drawing_utils
 
-        #self.image_pub = rospy.Publisher("rand_topic",Image,queue_size=10)
         self.quad_pub = rospy.Publisher("quadrant", String, queue_size=1)
         self.bridge = CvBridge()
         self.image_sub = rospy.Subscriber("/hsrb/head_rgbd_sensor/rgb/image_raw",Image,self.detector)
-    # def findHands(self,img, draw=False):
-        
-
-    #     if self.results.multi_hand_landmarks:
-    #         for handLms in self.results.multi_hand_landmarks:
-    #             if draw:
-    #                 self.mpDraw.draw_landmarks(img, handLms, self.mpHands.HAND_CONNECTIONS)
-    #             #for id, lm in enumerate(handLms.landmarks):
-    #     return img
     
     def landmarks(self, img, handNo = 0, draw = False):
         landmark_list = []
@@ -39,6 +29,8 @@ class pointDetector():
         self.results = self.hands.process(imgRGB)
         if self.results.multi_hand_landmarks:
             hand = self.results.multi_hand_landmarks[handNo]
+            if draw:
+                self.mpDraw.draw_landmarks(img, hand, self.mpHands.HAND_CONNECTIONS)
             for id, lm in enumerate(hand.landmark):
                 h, w, c = img.shape
                 cx, cy = int(lm.x * w), int(lm.y * h)
@@ -46,7 +38,7 @@ class pointDetector():
                 if draw:
                     cv2.circle(img, (cx,cy), 5, (255,0,0), cv2.FILLED)
 
-        return landmark_list
+        return landmark_list,img
     
     def quadrants(self,img,landmark_list):
         #Eventually remove
@@ -85,7 +77,7 @@ class pointDetector():
             # img = cv2.rectangle(img,(o_x,0),(w,o_y),green,2)
             # img = cv2.rectangle(img,(0,o_y),(o_x,h),red,2)
             # img = cv2.rectangle(img,(o_x,o_y),(w,h),rand,2)
-        return(q)
+        return(q,img)
     
 
     def detector(self,data):
@@ -93,13 +85,11 @@ class pointDetector():
             img = self.bridge.imgmsg_to_cv2(data, "bgr8")
         except CvBridgeError as e:
             print(e)
-        lmList = self.landmarks(img)
-        quadrant = self.quadrants(img, lmList)
-        # cv2.imshow("Image", img)
-        # cv2.waitKey(1)
+        lmList,img = self.landmarks(img)
+        quadrant,img = self.quadrants(img, lmList)
+        cv2.imshow("Image", img)
+        cv2.waitKey(1)
         self.quad_pub.publish(quadrant)
-        #rospy.sleep(3)
-
 
 def main():
     rospy.init_node('point_detection')
@@ -108,7 +98,7 @@ def main():
         rospy.spin()
     except KeyboardInterrupt:
         print("Shutting Down")
-    #cv2.destroyAllWindows()
+    cv2.destroyAllWindows()
 
 if __name__ == '__main__':
     main()

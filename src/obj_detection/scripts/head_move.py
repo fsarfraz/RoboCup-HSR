@@ -50,8 +50,7 @@ class move_head():
             traj.points = [p]
             self.increment -= 0.01    
         # publish ROS message
-
-        print("traj", traj)
+        # print("traj", traj)
         self.head_pub.publish(traj)
 
 def main():

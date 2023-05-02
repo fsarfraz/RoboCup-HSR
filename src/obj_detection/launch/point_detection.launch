@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<launch>
+  <node pkg="obj_detection" type="point_detection.py" name="point_detection" output="screen"/>
+  <node pkg="obj_detection" type="head_move.py" name="move_head" output="screen"/>
+</launch>
