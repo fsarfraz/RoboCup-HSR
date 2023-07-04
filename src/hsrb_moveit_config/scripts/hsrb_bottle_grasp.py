@@ -35,11 +35,9 @@ class MoveItPickAndPlaceDemo(object):
         self.scene = moveit_commander.planning_scene_interface.PlanningSceneInterface()
         self._pub_co = rospy.Publisher('/collision_object', CollisionObject, queue_size=100)
 
-        # self.point_cloud = rospy.Subscriber('/segmented_point_ros',PointCloud2,self.point_cloud_callback)
-        # self.point_cloud = rospy.wait_for_message('/segmented_point_ros', PointCloud2)
-        self.pnt_cld = np.load("pnt_cld.npy")
-        # self.pnt_cld = ros_numpy.point_cloud2.pointcloud2_to_xyz_array(self.point_cloud, remove_nans=True)
-        # np.save("pnt_cld.npy",self.pnt_cld)
+        self.point_cloud = rospy.wait_for_message('/transformed_point_cloud', PointCloud2)
+        self.pnt_cld = ros_numpy.point_cloud2.pointcloud2_to_xyz_array(self.point_cloud, remove_nans=True)
+        np.save("pnt_cld.npy",self.pnt_cld)
         print("-----THIS IS WORKING ONCE--------\n")
 
         # self.pcd = o3d.geometry.PointCloud()
@@ -60,14 +58,13 @@ class MoveItPickAndPlaceDemo(object):
 
         # rospy.sleep(5)
 
-
         #calculate center of bottle
         self.point_cloud_array = np.array(self.pnt_cld)
         self.centroid = (np.sum(self.point_cloud_array, axis = 0) / len(self.point_cloud_array))
         print(self.centroid)
-        self.x_cent = self.centroid[0] + 0.6
+        self.x_cent = self.centroid[0]
         self.y_cent = self.centroid[1]
-        self.z_cent = -self.centroid[2] + 0.2
+        self.z_cent = -self.centroid[2]
 
         self.whole_body.allow_replanning(True)
         self.whole_body.set_planning_time(5)
@@ -94,15 +91,7 @@ class MoveItPickAndPlaceDemo(object):
         rospy.sleep(wait)
 
 
-    #add Mesh and try adding boxes for table and wall
-        # self.add_box("table",
-        #              [0.3, 0.8, 0.01],
-        #              [0.5, 0.0, 0.5 - 0.01 / 2])
-        # self.add_box("wall",
-        #              [0.3, 0.01, 0.1],
-        #              [0.5, 0.0, 0.5 + 0.1 / 2])
-        # self.add_mesh("target1",
-        #              [self.x_cent, self.y_cent, self.z_cent], self.path)
+    #add cylinder
         self.add_cylinder("target1",
                           0.02, 0.12,
                           [self.x_cent, self.y_cent, self.z_cent])
@@ -120,27 +109,6 @@ class MoveItPickAndPlaceDemo(object):
         self.pick("target1", grasps)
         rospy.logdebug("done")
         rospy.sleep(wait)
-
-        #pick target2
-        # rospy.loginfo("step4: pick target1")
-        # yaw = [i / 180.0 * math.pi for i in range(0, 360, 30)]
-        # grasps = self.make_grasps("target1",
-        #                           (1, 0, 0, 0),
-        #                           z=[0.1],
-        #                           yaw=yaw)
-        # self.pick("target2", grasps)
-        # rospy.logdebug("done")
-        # rospy.sleep(wait)
-
-        # place target1
-        # rospy.loginfo("step3: place target1")
-        # location = self.make_place_location(0.4, -0.2, 0.5 + 0.2 / 2)
-        # self.place("target1", location)
-        # rospy.logdebug("done")
-        # rospy.sleep(wait)
-
-        # gripper.set_joint_value_target("hand_motor_joint", 1.0)
-        # gripper.go()
 
         moveit_commander.roscpp_shutdown()
         moveit_commander.os._exit(0)
@@ -278,16 +246,6 @@ class MoveItPickAndPlaceDemo(object):
         p.pose.orientation.w = 1.0
         self.scene.add_box(name, p, size)
 
-    # def add_mesh(self, name, pos, filepath):
-    #     p = geometry_msgs.msg.PoseStamped()
-    #     p.header.frame_id = self.reference_frame
-    #     p.pose.position.x = pos[0]
-    #     p.pose.position.y = pos[1]
-    #     p.pose.position.z = pos[2]
-    #     p.pose.orientation.w = 1.0
-    #     self.scene.make_mesh(name,p,filepath)
-    #     self.scene.add_mesh(name,p,filepath)
-    #     # self._pub_co.publish(co)
     
     def add_cylinder(self, name, radius, height, pos):
         co = moveit_msgs.msg.CollisionObject()
@@ -305,9 +263,6 @@ class MoveItPickAndPlaceDemo(object):
         co.primitive_poses = [p]
         # self.scene._pub_co.publish(co)
         self._pub_co.publish(co)
-
-    
-
 
 
 #rospy.waitformessage method is possible
